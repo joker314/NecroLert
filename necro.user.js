@@ -7,8 +7,8 @@
 // ==/UserScript==
 function getDate(str){
   var d = str;
-  d = d.replace("Today", new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate();
-  d = d.replace("Yesterday", new Date(Date.now() - 86400000).getFullYear() +
+  var d = d.replace("Today", new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate());
+  var d = d.replace("Yesterday", new Date(Date.now() - 86400000).getFullYear() +
     "-" + new Date(Date.now() - 86400000).getMonth() + 
     "-" + new Date(Date.now() - 86400000).getDate());
   return new Date(d);
