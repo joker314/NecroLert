@@ -7,11 +7,7 @@
 // ==/UserScript==
 function getDate(el){
   console.log(el);
-  try{
   var d = el.innerHTML;
-  } catch(err){
-    return;
-  }
   var d = d.replace("Today", new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate());
   var d = d.replace("Yesterday", new Date(Date.now() - 86400000).getFullYear() +
     "-" + new Date(Date.now() - 86400000).getMonth() + 
