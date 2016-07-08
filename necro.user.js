@@ -6,7 +6,12 @@
 // @match *://scratch.mit.edu/discuss/topic/*
 // ==/UserScript==
 function getDate(el){
+  console.log(el);
+  try{
   var d = el.innerHTML;
+  } catch(err){
+    return;
+  }
   var d = d.replace("Today", new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate());
   var d = d.replace("Yesterday", new Date(Date.now() - 86400000).getFullYear() +
     "-" + new Date(Date.now() - 86400000).getMonth() + 
@@ -16,7 +21,7 @@ function getDate(el){
 var postheaders = document.getElementsByClassName("box-head");
 
 for (var i = 1; i < postheaders.length; i++){
- if (getDate(postheaders[i].children[1]).valueOf() - getDate(postheaders[i].children[1]).valueOf() > 1814400000){
+ if (getDate(postheaders[i].children[1]).valueOf() - getDate(postheaders[i - 1].children[1]).valueOf() > 1814400000){
    postheaders[i].style.backgroundColor = "red";
  }
 }
