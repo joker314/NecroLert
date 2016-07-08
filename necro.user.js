@@ -5,8 +5,8 @@
 // @description  Shows a visual warning if you are maing a necropost on Scratch
 // @match *://scratch.mit.edu/discuss/topic/*
 // ==/UserScript==
-function getDate(str){
-  var d = str;
+function getDate(el){
+  var d = el.innerHTML;
   var d = d.replace("Today", new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate());
   var d = d.replace("Yesterday", new Date(Date.now() - 86400000).getFullYear() +
     "-" + new Date(Date.now() - 86400000).getMonth() + 
