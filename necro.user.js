@@ -14,7 +14,7 @@ function getDate(el){
     "-" + new Date(Date.now() - 86400000).getDate());
   return new Date(d);
 }
-var postheaders = document.getElementsByClassName("box-head");
+var postheaders = document.querySelectorAll(".blockpost .box-head");
 
 for (var i = 1; i < postheaders.length; i++){
  if (getDate(postheaders[i].children[1]).valueOf() - getDate(postheaders[i - 1].children[1]).valueOf() > 1814400000){
@@ -22,6 +22,8 @@ for (var i = 1; i < postheaders.length; i++){
  }
 }
 
-if(getDate(postheaders[postheaders.length].children[1]).valueOf() - new Date().valueOf() > 1814400000){
-  document.getElementsByName("AddPostForm")[0].style.backgroundColor = "red";
+if(new Date().valueOf() - getDate(postheaders[postheaders.length - 1].children[1]).valueOf()   > 1814400000){
+  document.getElementsByName("AddPostForm")[0].className = "button";
+  document.getElementsByName("AddPostForm")[0].style.color = "red";
+  document.getElementsByName("AddPostForm")[0].children[0].innerHTML = "Necropost this";
 }
